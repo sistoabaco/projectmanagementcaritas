@@ -25,6 +25,7 @@ public class DataLoader implements CommandLineRunner {
 
     @Override
     public void run(String...args) throws Exception {
+        //Privilegios
         roleRepo.save(new Role(1,"ADMIN"));
         roleRepo.save(new Role(1,"USER"));
         roleRepo.save(new Role(2, "P_PARCEIRO"));
@@ -40,11 +41,13 @@ public class DataLoader implements CommandLineRunner {
         roleRepo.save(new Role(12, "P_FIEL DE ARMAZEM"));
         roleRepo.save(new Role(13, "P_TECNICOS DO CAMPO"));
 
+        // Utilizadores
         userRepo.save(new User(1,"admin","zxcvb",
                 Arrays.asList(roleRepo.findByRole("ADMIN"))));
         userRepo.save(new User(2,"user","zxcvb",
                 Arrays.asList(roleRepo.findByRole("user"))));
 
+        //Funcionario
         employeeRepo.save(new Employee(1, "Sisto","Abaco","Male",
                 "Eduardo Mondlane", "+258 847 264 343", "abaco@gmail.com",
                 "Pemba", Date.valueOf("2000-01-02"), Date.valueOf("2050-01-02"),
