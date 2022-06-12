@@ -7,6 +7,7 @@
         <th>First Name</th>
         <th>Last Name</th>
         <th>E-mail</th>
+        <th>Username</th>
       </thead>
       <tbody>
         <tr v-for="employee in employees" v-bind:key="employee.id">
@@ -14,6 +15,7 @@
           <td>{{employee.firstName}}</td>
           <td>{{employee.lastName}}</td>
           <td>{{employee.email}}</td>
+          <td>{{employee.user.username}}</td>
         </tr>
       </tbody>
     </table>

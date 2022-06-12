@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.sql.Date;
 import java.util.Arrays;
 import java.util.Optional;
 
@@ -46,10 +47,12 @@ public class DataLoader implements CommandLineRunner {
 
         employeeRepo.save(new Employee(1, "Sisto","Abaco","Male",
                 "Eduardo Mondlane", "+258 847 264 343", "abaco@gmail.com",
-                userRepo.findByUsername("admin")));
+                "Pemba", Date.valueOf("2000-01-02"), Date.valueOf("2050-01-02"),
+                Date.valueOf("2050-04-09"), userRepo.findByUsername("admin")));
 
         employeeRepo.save(new Employee(2, "cassimo","duarte","Male",
                 "Alto-Jingone", "+258 877 285 434", "duarte@gmail.com",
-                userRepo.findByUsername("user")));
+                "Pemba",  Date.valueOf("2000-01-02"), Date.valueOf("2050-01-02"),
+                Date.valueOf("2050-04-09"), userRepo.findByUsername("user")));
     }
 }
