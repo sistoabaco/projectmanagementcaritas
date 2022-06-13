@@ -11,10 +11,8 @@ import com.dev.projectmanagementcaritas.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-
 import java.sql.Date;
 import java.util.Arrays;
-import java.util.Optional;
 
 @Component
 public class DataLoader implements CommandLineRunner {
@@ -54,6 +52,8 @@ public class DataLoader implements CommandLineRunner {
         //projecto
         projectRepo.save(new Project(1,"BHA", "Activo", 12000000.0,"Chiure",
                 Date.valueOf("2020-08-01"), Date.valueOf( "2022-10-01"), "USD", 8276626.0));
+        projectRepo.save(new Project(1,"Hungria", "Terminado", 8000000.0,"Mecufi",
+                Date.valueOf("2020-08-01"), Date.valueOf( "2022-04-01"), "MZN", 100000.0));
 
         //Funcionario
         employeeRepo.save(new Employee(1, "Sisto","Abaco","Male",
