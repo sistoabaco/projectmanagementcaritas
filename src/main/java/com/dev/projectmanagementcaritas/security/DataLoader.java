@@ -1,9 +1,11 @@
 package com.dev.projectmanagementcaritas.security;
 
 import com.dev.projectmanagementcaritas.model.Employee;
+import com.dev.projectmanagementcaritas.model.Project;
 import com.dev.projectmanagementcaritas.model.Role;
 import com.dev.projectmanagementcaritas.model.User;
 import com.dev.projectmanagementcaritas.repository.EmployeeRepo;
+import com.dev.projectmanagementcaritas.repository.ProjectRepo;
 import com.dev.projectmanagementcaritas.repository.RoleRepo;
 import com.dev.projectmanagementcaritas.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +24,8 @@ public class DataLoader implements CommandLineRunner {
     UserRepo userRepo;
     @Autowired
     EmployeeRepo employeeRepo;
+    @Autowired
+    ProjectRepo projectRepo;
 
     @Override
     public void run(String...args) throws Exception {
@@ -47,15 +51,21 @@ public class DataLoader implements CommandLineRunner {
         userRepo.save(new User(2,"user","zxcvb",
                 Arrays.asList(roleRepo.findByRole("user"))));
 
+        //projecto
+        projectRepo.save(new Project(1,"BHA", "Activo", 12000000.0,"Chiure",
+                Date.valueOf("2020-08-01"), Date.valueOf( "2022-10-01"), "USD", 8276626.0));
+
         //Funcionario
         employeeRepo.save(new Employee(1, "Sisto","Abaco","Male",
                 "Eduardo Mondlane", "+258 847 264 343", "abaco@gmail.com",
                 "Pemba", Date.valueOf("2000-01-02"), Date.valueOf("2050-01-02"),
-                Date.valueOf("2050-04-09"), userRepo.findByUsername("admin")));
+                Date.valueOf("2050-04-09"), userRepo.findByUsername("admin"),
+                Arrays.asList(projectRepo.findByName("BHA"))));
 
         employeeRepo.save(new Employee(2, "cassimo","duarte","Male",
                 "Alto-Jingone", "+258 877 285 434", "duarte@gmail.com",
                 "Pemba",  Date.valueOf("2000-01-02"), Date.valueOf("2050-01-02"),
-                Date.valueOf("2050-04-09"), userRepo.findByUsername("user")));
+                Date.valueOf("2050-04-09"), userRepo.findByUsername("user"),
+                Arrays.asList(projectRepo.findByName("BHA"))));
     }
 }

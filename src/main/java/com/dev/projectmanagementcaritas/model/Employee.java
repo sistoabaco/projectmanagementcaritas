@@ -2,10 +2,10 @@ package com.dev.projectmanagementcaritas.model;
 
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
-
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.Date;
+import java.util.Collection;
 
 @Data
 @Getter
@@ -38,4 +38,13 @@ public class Employee implements Serializable {
 
     @OneToOne
     private User user;
+
+    @ManyToMany
+    @JoinTable(
+            name = "employee_project",
+            joinColumns = @JoinColumn(
+                    name = "idEmployee", referencedColumnName = "idEmployee"),
+            inverseJoinColumns = @JoinColumn(
+                    name = "idProject", referencedColumnName = "idProject"))
+    private Collection <Project> project;
 }

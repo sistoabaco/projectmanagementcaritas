@@ -1,7 +1,7 @@
 package com.dev.projectmanagementcaritas.controller;
 
-import com.dev.projectmanagementcaritas.model.Role;
-import com.dev.projectmanagementcaritas.repository.RoleRepo;
+import com.dev.projectmanagementcaritas.model.Project;
+import com.dev.projectmanagementcaritas.repository.ProjectRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,18 +13,18 @@ import java.util.List;
 
 //@Controller
 @RestController
-public class RoleController {
-    @Autowired
-    RoleRepo roleRepo;
+public class ProjectController {
 
-    @GetMapping("/roleList")
-    public List <Role> getRoles(){
-        return roleRepo.findAll();
+    @Autowired
+    ProjectRepo projectRepo;
+
+    @GetMapping("/projectList")
+    public List <Project> getProjects(){
+        return projectRepo.findAll();
     }
 
-    @PostMapping("/saveRole")
-    public String createRole(@RequestBody Role role){
-        roleRepo.save(role);
-        return "Sucessful";
+    @PostMapping("/saveProject")
+    public void createProject(@RequestBody Project project){
+        projectRepo.save(project);
     }
 }

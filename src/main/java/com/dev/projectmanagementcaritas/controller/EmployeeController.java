@@ -19,6 +19,8 @@ public class EmployeeController {
         return employeeRepo.findAll();
     }
 
-
-
+    @PostMapping("saveEmployee")
+    public void createEmployee(@RequestBody Employee employee){
+        employeeRepo.save(employee);
+    }
 }
