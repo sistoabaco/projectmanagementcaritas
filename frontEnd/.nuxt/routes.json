@@ -1,0 +1,40 @@
+[
+  {
+    "name": "partners",
+    "path": "/partners",
+    "component": "C:\\\\projectos_duarte\\\\projectmanagementcaritas\\\\frontEnd\\\\pages\\\\partners\\\\index.vue",
+    "chunkName": "pages/partners/index"
+  },
+  {
+    "name": "project",
+    "path": "/project",
+    "component": "C:\\\\projectos_duarte\\\\projectmanagementcaritas\\\\frontEnd\\\\pages\\\\project\\\\index.vue",
+    "chunkName": "pages/project/index"
+  },
+  {
+    "name": "users",
+    "path": "/users",
+    "component": "C:\\\\projectos_duarte\\\\projectmanagementcaritas\\\\frontEnd\\\\pages\\\\users\\\\index.vue",
+    "chunkName": "pages/users/index",
+    "children": [
+      {
+        "name": "users-index-create",
+        "path": "create",
+        "component": "C:\\\\projectos_duarte\\\\projectmanagementcaritas\\\\frontEnd\\\\pages\\\\users\\\\index\\\\create.vue",
+        "chunkName": "pages/users/index/create"
+      },
+      {
+        "name": "users-index-id-edit",
+        "path": ":id?/edit",
+        "component": "C:\\\\projectos_duarte\\\\projectmanagementcaritas\\\\frontEnd\\\\pages\\\\users\\\\index\\\\_id\\\\edit.vue",
+        "chunkName": "pages/users/index/_id/edit"
+      }
+    ]
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "C:\\\\projectos_duarte\\\\projectmanagementcaritas\\\\frontEnd\\\\pages\\\\index.vue",
+    "chunkName": "pages/index"
+  }
+]
