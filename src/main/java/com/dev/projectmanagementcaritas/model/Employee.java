@@ -19,6 +19,7 @@ import java.util.Collection;
 public class Employee implements Serializable {
     @Id@GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idEmployee;
+
     private String firstName;
     private String lastName;
     private String gender;
@@ -36,7 +37,7 @@ public class Employee implements Serializable {
     @DateTimeFormat(pattern = "yyyy-mm-dd")
     private Date dateEnd;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private User user;
 
     @ManyToMany
@@ -47,4 +48,5 @@ public class Employee implements Serializable {
             inverseJoinColumns = @JoinColumn(
                     name = "idProject", referencedColumnName = "idProject"))
     private Collection <Project> project;
+
 }

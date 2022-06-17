@@ -1,7 +1,6 @@
 package com.dev.projectmanagementcaritas.model;
 
 import lombok.*;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Collection;
@@ -29,6 +28,5 @@ public class User implements Serializable {
                     name = "idUser", referencedColumnName = "idUser"),
             inverseJoinColumns = @JoinColumn(
                     name = "idRole", referencedColumnName = "idRole"))
-
     private Collection <Role> role;
 }

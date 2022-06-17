@@ -8,7 +8,7 @@ import java.util.List;
 
 //@Controller
 @RestController
-@CrossOrigin("http://localhost:8081/")
+@CrossOrigin("http://localhost:3000/")
 
 public class EmployeeController {
     @Autowired

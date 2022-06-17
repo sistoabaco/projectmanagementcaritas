@@ -3,6 +3,9 @@ package com.dev.projectmanagementcaritas.model;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Collection;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 @Data
@@ -20,6 +23,7 @@ public class Role implements Serializable {
     private int idRole;
     private String description;
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "role", fetch = FetchType.EAGER)
     private Collection <User> user;
 

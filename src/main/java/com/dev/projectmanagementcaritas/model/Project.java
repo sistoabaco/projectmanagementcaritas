@@ -1,5 +1,6 @@
 package com.dev.projectmanagementcaritas.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
@@ -27,15 +28,18 @@ public class Project implements Serializable {
 
     @DateTimeFormat(pattern = "yyyy-mm-dd")
     private Date dateStart;
-
     @DateTimeFormat(pattern = "yyyy-mm-dd")
     private Date dateEnd;
-
     private String typeCurrency;
     private double balanceAvailable;
 
-    @ManyToMany(mappedBy = "project")
+    @JsonIgnore
+    @ManyToMany(mappedBy = "project", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Collection <Employee> employee;
+
+    @JsonIgnore
+    @ManyToMany(mappedBy = "project", cascade = CascadeType.ALL)
+    private Collection <Partner> partner;
 
     public Project(int idProject, String projectName, String status, double budget,
                    String localImplementation, Date dateStart, Date dateEnd, String typeCurrency,
