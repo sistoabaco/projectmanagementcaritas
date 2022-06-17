@@ -134,6 +134,16 @@ export default defineComponent({
         title: "Telefone",
         class: "whitespace-no-wrap",
       },
+      {
+        key: "dateStart",
+        title: "inicio de trbalho",
+        class: "whitespace-no-wrap",
+      },
+      {
+        key: "dateEnd",
+        title: "fim de trbalho",
+        class: "whitespace-no-wrap",
+      },
     ],
   }),
   // mounted(){

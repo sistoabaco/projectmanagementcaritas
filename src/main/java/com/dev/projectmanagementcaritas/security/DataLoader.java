@@ -20,9 +20,12 @@ public class DataLoader implements CommandLineRunner {
     ProjectRepo projectRepo;
     @Autowired
     PartnerRepo partnerRepo;
+    @Autowired
+    CategoryRepo categoryRepo;
 
     @Override
     public void run(String...args) throws Exception {
+
         //Privilegios
         roleRepo.save(new Role(1,"ADMIN"));
         roleRepo.save(new Role(2,"USER"));
@@ -56,17 +59,27 @@ public class DataLoader implements CommandLineRunner {
         projectRepo.save(new Project(2,"Hungria", "Terminado", 8000000.0,"Mecufi",
                 Date.valueOf("2020-08-01"), Date.valueOf( "2022-04-01"), "MZN", 100000.0));
 
+        //Categorias
+
+        categoryRepo.save (new Category("ADMIN", 0));
+        categoryRepo.save (new Category("USER", 30000));
+//        categoryRepo.save(new Category("COORDENADOR", 80000.0));
+//        categoryRepo.save(new Category("OFICIAL DE MEAL", 30000.0));
+//        categoryRepo.save(new Category("GESTOR FINANCEIRO", 135000.0));
+//        categoryRepo.save(new Category("GESTOR DE PROGRAMAS", 150000.0));
+//        categoryRepo.save(new Category("DIRECTOR", 200000.0));
+
         //Funcionario
         employeeRepo.save(new Employee(1, "Sisto","Abaco","Male",
-                "Eduardo Mondlane", "+258 847 264 343", "abaco@gmail.com",
-                "Pemba", Date.valueOf("2000-01-02"), Date.valueOf("2050-01-02"),
-                Date.valueOf("2050-04-09"), userRepo.findByUsername("admin"),
+                "Eduardo Mondlane", "+258 847 264 343", "Pemba",
+                Date.valueOf("2000-01-02"), Date.valueOf("2050-01-02"),  Date.valueOf("2050-04-09"),
+                userRepo.findByUsername("admin"), categoryRepo.findByName("ADMIN"),
                 Arrays.asList(projectRepo.findByName("BHA"))));
 
         employeeRepo.save(new Employee(2, "cassimo","duarte","Male",
-                "Alto-Jingone", "+258 877 285 434", "duarte@gmail.com",
-                "Pemba",  Date.valueOf("2000-01-02"), Date.valueOf("2050-01-02"),
-                Date.valueOf("2050-04-09"), userRepo.findByUsername("user"),
+                "Alto-Jingone", "+258 877 285 434", "Pemba",  Date.valueOf("2000-01-02"),
+                Date.valueOf("2050-01-02"), Date.valueOf("2050-04-09"),
+                userRepo.findByUsername("user"),categoryRepo.findByName("USER"),
                 Arrays.asList(projectRepo.findByName("Hungria"))));
 
         //Parceiro

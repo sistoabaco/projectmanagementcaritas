@@ -25,7 +25,7 @@ public class Employee implements Serializable {
     private String gender;
     private String address;
     private String cellphone;
-    private String email;
+//    private String email;
     private String provenance; //district
 
     @DateTimeFormat(pattern = "yyyy-mm-dd")
@@ -33,12 +33,15 @@ public class Employee implements Serializable {
 
     //About Contract
     @DateTimeFormat(pattern = "yyyy-mm-dd")
-    private Date dateBegin;
+    private Date dateStart;
     @DateTimeFormat(pattern = "yyyy-mm-dd")
     private Date dateEnd;
 
     @OneToOne(cascade = CascadeType.ALL)
     private User user;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Category category;
 
     @ManyToMany
     @JoinTable(

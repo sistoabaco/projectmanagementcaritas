@@ -16,7 +16,7 @@ import lombok.*;
 @AllArgsConstructor
 
 @Entity
-@Table(name = "roles")
+//@Table(name = "roles")
 public class Role implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
