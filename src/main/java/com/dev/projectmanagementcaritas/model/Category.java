@@ -21,13 +21,13 @@ public class Category implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idCategory;
     private String description;
-    private float salary;
+    private double  salary;
 
     @JsonIgnore
     @OneToMany(mappedBy = "category")
     private Collection <Employee> employees;
 
-    public Category(String description, float salary) {
+    public Category(String description, double salary) {
         this.description = description;
         this.salary = salary;
     }

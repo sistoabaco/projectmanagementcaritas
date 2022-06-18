@@ -21,9 +21,28 @@ public class RoleController {
         return roleRepo.findAll();
     }
 
+    @GetMapping("/findRole/{id}")
+    public Role findRole(@PathVariable int id){
+        return roleRepo.findById(id).orElse(null);
+    }
+
     @PostMapping("/saveRole")
     public String createRole(@RequestBody Role role){
         roleRepo.save(role);
-        return "Sucessful";
+        return "redirect:/roleList";
+    }
+
+    @PutMapping("/updateRole/{id}")
+    public Role updateRole(@PathVariable int id, @RequestBody Role role){
+        Role oldRole = roleRepo.findById(id).orElse(null);
+        if (oldRole == null) return null;
+
+        oldRole.setDescription(role.getDescription());
+        return roleRepo.save(oldRole);
+    }
+    @PutMapping("/deleteRole/{id}")
+    public String deleteRole(@PathVariable int id){
+        roleRepo.deleteById(id);
+        return "redirect:/roleList";
     }
 }

@@ -40,6 +40,9 @@ public class Employee implements Serializable {
     @OneToOne(cascade = CascadeType.ALL)
     private User user;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    private Perfil perfil;
+
     @ManyToOne(fetch = FetchType.EAGER)
     private Category category;
 
@@ -52,4 +55,22 @@ public class Employee implements Serializable {
                     name = "idProject", referencedColumnName = "idProject"))
     private Collection <Project> project;
 
+    public Employee(int idEmployee, String firstName, String lastName, String gender,
+                    String address, String cellphone, String provenance, Date dateBirth,
+                    Date dateStart, Date dateEnd, User user, Category category,
+                    Collection<Project> project) {
+        this.idEmployee = idEmployee;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.gender = gender;
+        this.address = address;
+        this.cellphone = cellphone;
+        this.provenance = provenance;
+        this.dateBirth = dateBirth;
+        this.dateStart = dateStart;
+        this.dateEnd = dateEnd;
+        this.user = user;
+        this.category = category;
+        this.project = project;
+    }
 }

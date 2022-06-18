@@ -27,13 +27,13 @@ public class DataLoader implements CommandLineRunner {
     public void run(String...args) throws Exception {
 
         //Privilegios
-        roleRepo.save(new Role(1,"ADMIN"));
-        roleRepo.save(new Role(2,"USER"));
-        roleRepo.save(new Role(3, "PARTNER"));
-        roleRepo.save(new Role(4, "TEAM_LEADER"));
-        roleRepo.save(new Role(14, "COORDENADOR"));
-        roleRepo.save(new Role(5, "OFICIAL_DE_MEAL"));
-        roleRepo.save(new Role(6, "GESTOR_DE_PROJECTOS"));
+        roleRepo.save(new Role(1,"P_ADMIN"));
+        roleRepo.save(new Role(2,"P_USER"));
+        roleRepo.save(new Role(3, "P_PARTNER"));
+        roleRepo.save(new Role(4, "P_TEAM_LEADER"));
+        roleRepo.save(new Role(14, "P_COORDENADOR"));
+        roleRepo.save(new Role(5, "P_OFICIAL_DE_MEAL"));
+        roleRepo.save(new Role(6, "P_GESTOR_DE_PROJECTOS"));
         roleRepo.save(new Role(7, "P_DIRECTOR"));
         roleRepo.save(new Role(8,"P_GESTOR FINANCEIRO"));
         roleRepo.save(new Role(9, "P_CONTABILISTA"));
@@ -44,9 +44,9 @@ public class DataLoader implements CommandLineRunner {
 
         // Utilizadores
         userRepo.save(new User(1,"admin","zxcvb",
-                Arrays.asList(roleRepo.findByRole("ADMIN"),
-                        roleRepo.findByRole("USER"),
-                        roleRepo.findByRole("PARTNER"))));
+                Arrays.asList(roleRepo.findByRole("P_ADMIN"),
+                        roleRepo.findByRole("P_USER"),
+                        roleRepo.findByRole("P_PARTNER"))));
 
         userRepo.save(new User(2,"user","zxcvb",
                 Arrays.asList(roleRepo.findByRole("USER"))));
@@ -62,22 +62,22 @@ public class DataLoader implements CommandLineRunner {
         //Categorias
 
         categoryRepo.save (new Category("ADMIN", 0));
-        categoryRepo.save (new Category("USER", 30000));
-//        categoryRepo.save(new Category("COORDENADOR", 80000.0));
-//        categoryRepo.save(new Category("OFICIAL DE MEAL", 30000.0));
-//        categoryRepo.save(new Category("GESTOR FINANCEIRO", 135000.0));
-//        categoryRepo.save(new Category("GESTOR DE PROGRAMAS", 150000.0));
-//        categoryRepo.save(new Category("DIRECTOR", 200000.0));
+        categoryRepo.save (new Category("USER", 0));
+        categoryRepo.save(new Category("COORDENADOR", 80000));
+        categoryRepo.save(new Category("OFICIAL DE MEAL", 30000));
+        categoryRepo.save(new Category("GESTOR FINANCEIRO", 135000));
+        categoryRepo.save(new Category("GESTOR DE PROGRAMAS", 150000));
+        categoryRepo.save(new Category("DIRECTOR", 200000));
 
         //Funcionario
         employeeRepo.save(new Employee(1, "Sisto","Abaco","Male",
                 "Eduardo Mondlane", "+258 847 264 343", "Pemba",
-                Date.valueOf("2000-01-02"), Date.valueOf("2050-01-02"),  Date.valueOf("2050-04-09"),
+                Date.valueOf("1995-06-06"), Date.valueOf("2050-01-02"),  Date.valueOf("2050-04-09"),
                 userRepo.findByUsername("admin"), categoryRepo.findByName("ADMIN"),
                 Arrays.asList(projectRepo.findByName("BHA"))));
 
         employeeRepo.save(new Employee(2, "cassimo","duarte","Male",
-                "Alto-Jingone", "+258 877 285 434", "Pemba",  Date.valueOf("2000-01-02"),
+                "Alto-Jingone", "+258 877 285 434", "Pemba",  Date.valueOf("1994-08-09"),
                 Date.valueOf("2050-01-02"), Date.valueOf("2050-04-09"),
                 userRepo.findByUsername("user"),categoryRepo.findByName("USER"),
                 Arrays.asList(projectRepo.findByName("Hungria"))));

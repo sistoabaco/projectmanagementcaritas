@@ -131,17 +131,17 @@ export default defineComponent({
       },
       {
         key: "cellphone",
-        title: "Telefone",
+        title: "Celular",
         class: "whitespace-no-wrap",
       },
       {
         key: "dateStart",
-        title: "inicio de trbalho",
+        title: "inicio de trabalho",
         class: "whitespace-no-wrap",
       },
       {
         key: "dateEnd",
-        title: "fim de trbalho",
+        title: "fim de trabalho",
         class: "whitespace-no-wrap",
       },
     ],
