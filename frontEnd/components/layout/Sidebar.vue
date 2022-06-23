@@ -167,6 +167,7 @@
                   pl-3
                   py-3
                   pr-2
+
                   text-gray-50
                   hover:bg-gray-900
                   rounded

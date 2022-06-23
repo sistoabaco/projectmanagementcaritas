@@ -13,6 +13,14 @@
           class="col-span-3"
           required
         />
+        <TextInput label="Senha" placeholder="Senha" class="" required />
+        <TextInput
+          label="Repetir senha"
+          placeholder="Repetir senha"
+          class=""
+          required
+        />
+        <p></p>
         <TextInput
           v-model="user.name"
           label="Nome"
@@ -81,13 +89,7 @@
           class=""
           required
         />
-        <TextInput label="Senha" placeholder="Senha" class="" required />
-        <TextInput
-          label="Repetir senha"
-          placeholder="Repetir senha"
-          class=""
-          required
-        />
+
       </div>
       <template #actions>
         <div class="flex items-center space-x-4">
@@ -125,6 +127,7 @@ export default {
       name: "",
       email: "",
       role: null,
+      category : [],
     },
     roleOptions: [
       { value: "ADMIN", name: "Administrador" },
@@ -133,7 +136,9 @@ export default {
     ],
   }),
 
+
   methods: {
+
     handleSubmit() {
     },
   },

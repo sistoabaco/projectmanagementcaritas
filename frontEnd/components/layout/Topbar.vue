@@ -6,7 +6,7 @@
         class="text-xl text-white font-semibold uppercase"
         href="#"
       >
-        Caritas
+        CARITAS DIOCESANA DE PEMBA
       </a>
       <div class="flex items-center">
         <a
@@ -18,7 +18,7 @@
         </a>
         <div class="flex items-center">
           <div id="user-description-wrapper" class="hidden lg:block mr-3">
-            <p id="user-name" class="text-sm text-white">Cassimo Duarte</p>
+            <p id="user-name" class="text-sm text-white">pmarques</p>
             <p id="user-role" class="text-sm text-gray-400">Developer</p>
           </div>
           <div class="mr-2">
