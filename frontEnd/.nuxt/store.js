@@ -25,6 +25,7 @@ let store = {};
   resolveStoreModules(require('..\\store\\partners.js'), 'partners.js')
   resolveStoreModules(require('..\\store\\project.js'), 'project.js')
   resolveStoreModules(require('..\\store\\projects.js'), 'projects.js')
+  resolveStoreModules(require('..\\store\\ui.js'), 'ui.js')
 
   // If the environment supports hot reloading...
 
@@ -39,6 +40,7 @@ let store = {};
       '..\\store\\partners.js',
       '..\\store\\project.js',
       '..\\store\\projects.js',
+      '..\\store\\ui.js',
     ], () => {
       // Update `root.modules` with the latest definitions.
       updateModules()

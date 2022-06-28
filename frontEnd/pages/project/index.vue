@@ -43,7 +43,7 @@
               size="large"
               @click.native="
                 $router.push({
-                  name: 'users-index-create',
+                  name: 'project-index-create',
                 })
               "
             >
@@ -63,11 +63,6 @@
           >
             <template #name="{ value: project }">
               <span class="flex font-semibold">{{ project.name }}</span>
-            </template>
-            <template #role="{ value: project }">
-              <span>{{
-                roleOptions.find((role) => role.value === project.role).name
-              }}</span>
             </template>
             <template #actions="{ value: project }">
               <div class="flex flex-wrap items-center space-x-2">
@@ -108,6 +103,7 @@
           </Table>
         </div>
       </div>
+      <nuxt-child />
     </page>
   </div>
 </template>
@@ -122,7 +118,6 @@ import AddUserIcon from "~/assets/icons/add-user.vue";
 import Table from "~/components/common/misc/Table.vue";
 import EditOutline from "~/assets/icons/edit-outline.vue";
 import DeleteOutline from "~/assets/icons/delete_outline.vue";
-import "vuex/types/vue";
 
 export default defineComponent({
   name: "Index",
