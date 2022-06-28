@@ -2,6 +2,7 @@ package com.dev.projectmanagementcaritas.controller;
 
 import com.dev.projectmanagementcaritas.model.*;
 import com.dev.projectmanagementcaritas.repository.EmployeeRepo;
+import com.dev.projectmanagementcaritas.repository.RoleRepo;
 import com.dev.projectmanagementcaritas.repository.UserRepo;
 import com.dev.projectmanagementcaritas.service.Services;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,8 @@ public class EmployeeController {
     EmployeeRepo employeeRepo;
     @Autowired
     UserRepo userRepo;
-    Services services;
+    @Autowired
+    RoleRepo roleRepo;
 
 //    record EmployeeRequest (int idEmployee, String firstName, String lastName, String gender,
 //                            String address, String cellphone, String provenance, Date dateBirth,
@@ -53,7 +55,14 @@ public class EmployeeController {
             return "erro, username invalido!!! informe um email valido";
         }
 
-        services.setUserRole(user, category);
+        switch (category.getDescription()){
+            case "admin": user.setRole(Arrays.asList(roleRepo.findByRole("P_ADMIN"),
+                    roleRepo.findByRole("P_USER"),
+                    roleRepo.findByRole("P_PARTNER"))); break;
+            case "user":user.setRole(Arrays.asList(roleRepo.findByRole("USER"))); break;
+            case "partner":user.setRole(Arrays.asList(roleRepo.findByRole("PARTNER"))); break;
+            default:user.setRole(Arrays.asList(roleRepo.findByRole("OTHER")));
+        }
 
         userRepo.save(user);
         employee.setUser(user);

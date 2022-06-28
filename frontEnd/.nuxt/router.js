@@ -4,23 +4,14 @@ import { normalizeURL, decode } from 'ufo'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
-<<<<<<< HEAD
 const _8ba13664 = () => interopDefault(import('..\\pages\\login\\index.vue' /* webpackChunkName: "pages/login/index" */))
 const _210a2552 = () => interopDefault(import('..\\pages\\partners\\index.vue' /* webpackChunkName: "pages/partners/index" */))
 const _a1455844 = () => interopDefault(import('..\\pages\\project\\index.vue' /* webpackChunkName: "pages/project/index" */))
+const _355f1c5a = () => interopDefault(import('..\\pages\\project\\index\\create.vue' /* webpackChunkName: "pages/project/index/create" */))
 const _55d48662 = () => interopDefault(import('..\\pages\\users\\index.vue' /* webpackChunkName: "pages/users/index" */))
 const _f6c7f76a = () => interopDefault(import('..\\pages\\users\\index\\create.vue' /* webpackChunkName: "pages/users/index/create" */))
 const _8beaeb76 = () => interopDefault(import('..\\pages\\users\\index\\_id\\edit.vue' /* webpackChunkName: "pages/users/index/_id/edit" */))
 const _03f3ca1d = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
-=======
-const _32ce3264 = () => interopDefault(import('..\\pages\\partners\\index.vue' /* webpackChunkName: "pages/partners/index" */))
-const _4d8b46e8 = () => interopDefault(import('..\\pages\\project\\index.vue' /* webpackChunkName: "pages/project/index" */))
-const _1c379708 = () => interopDefault(import('..\\pages\\project\\index\\create.vue' /* webpackChunkName: "pages/project/index/create" */))
-const _425918fd = () => interopDefault(import('..\\pages\\users\\index.vue' /* webpackChunkName: "pages/users/index" */))
-const _3b0f5279 = () => interopDefault(import('..\\pages\\users\\index\\create.vue' /* webpackChunkName: "pages/users/index/create" */))
-const _a37d3552 = () => interopDefault(import('..\\pages\\users\\index\\_id\\edit.vue' /* webpackChunkName: "pages/users/index/_id/edit" */))
-const _ffc0b4a2 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
->>>>>>> 961ac01db9650739776c9558d93c0d6ea618e2d3
 
 const emptyFn = () => {}
 
@@ -39,33 +30,33 @@ export const routerOptions = {
     name: "login"
   }, {
     path: "/partners",
-    component: _32ce3264,
+    component: _210a2552,
     name: "partners"
   }, {
     path: "/project",
-    component: _4d8b46e8,
+    component: _a1455844,
     name: "project",
     children: [{
       path: "create",
-      component: _1c379708,
+      component: _355f1c5a,
       name: "project-index-create"
     }]
   }, {
     path: "/users",
-    component: _425918fd,
+    component: _55d48662,
     name: "users",
     children: [{
       path: "create",
-      component: _3b0f5279,
+      component: _f6c7f76a,
       name: "users-index-create"
     }, {
       path: ":id?/edit",
-      component: _a37d3552,
+      component: _8beaeb76,
       name: "users-index-id-edit"
     }]
   }, {
     path: "/",
-    component: _ffc0b4a2,
+    component: _03f3ca1d,
     name: "index"
   }],
 
