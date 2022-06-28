@@ -1,17 +1,21 @@
 [
   {
+    "name": "login",
+    "path": "/login",
+    "component": "C:\\\\Projectos\\\\projectmanagementcaritas\\\\frontEnd\\\\pages\\\\login\\\\index.vue",
+    "chunkName": "pages/login/index"
+  },
+  {
     "name": "partners",
     "path": "/partners",
     "component": "C:\\\\Projectos\\\\projectmanagementcaritas\\\\frontEnd\\\\pages\\\\partners\\\\index.vue",
-    "chunkName": "pages/partners/index",
-    "_name": "_210a2552"
+    "chunkName": "pages/partners/index"
   },
   {
     "name": "project",
     "path": "/project",
     "component": "C:\\\\Projectos\\\\projectmanagementcaritas\\\\frontEnd\\\\pages\\\\project\\\\index.vue",
-    "chunkName": "pages/project/index",
-    "_name": "_a1455844"
+    "chunkName": "pages/project/index"
   },
   {
     "name": "users",
@@ -23,24 +27,20 @@
         "name": "users-index-create",
         "path": "create",
         "component": "C:\\\\Projectos\\\\projectmanagementcaritas\\\\frontEnd\\\\pages\\\\users\\\\index\\\\create.vue",
-        "chunkName": "pages/users/index/create",
-        "_name": "_f6c7f76a"
+        "chunkName": "pages/users/index/create"
       },
       {
         "name": "users-index-id-edit",
         "path": ":id?/edit",
         "component": "C:\\\\Projectos\\\\projectmanagementcaritas\\\\frontEnd\\\\pages\\\\users\\\\index\\\\_id\\\\edit.vue",
-        "chunkName": "pages/users/index/_id/edit",
-        "_name": "_8beaeb76"
+        "chunkName": "pages/users/index/_id/edit"
       }
-    ],
-    "_name": "_55d48662"
+    ]
   },
   {
     "name": "index",
     "path": "/",
     "component": "C:\\\\Projectos\\\\projectmanagementcaritas\\\\frontEnd\\\\pages\\\\index.vue",
-    "chunkName": "pages/index",
-    "_name": "_03f3ca1d"
+    "chunkName": "pages/index"
   }
 ]

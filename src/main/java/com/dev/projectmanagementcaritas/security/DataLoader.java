@@ -4,6 +4,7 @@ import com.dev.projectmanagementcaritas.model.*;
 import com.dev.projectmanagementcaritas.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 import java.sql.Date;
 import java.util.Arrays;
@@ -22,6 +23,8 @@ public class DataLoader implements CommandLineRunner {
     PartnerRepo partnerRepo;
     @Autowired
     CategoryRepo categoryRepo;
+    @Autowired
+    BCryptPasswordEncoder passwordEncoder;
 
     @Override
     public void run(String...args) throws Exception {
@@ -48,9 +51,9 @@ public class DataLoader implements CommandLineRunner {
                         roleRepo.findByRole("P_USER"),
                         roleRepo.findByRole("P_PARTNER"))));
 
-        userRepo.save(new User(2,"user","zxcvb",
+        userRepo.save(new User(2,"user",passwordEncoder.encode("zxcvb"),
                 Arrays.asList(roleRepo.findByRole("USER"))));
-        userRepo.save(new User(3,"partner","zxcvb",
+        userRepo.save(new User(3,"partner",passwordEncoder.encode("zxcvb"),
                 Arrays.asList(roleRepo.findByRole("PARTNER"))));
 
         //projecto

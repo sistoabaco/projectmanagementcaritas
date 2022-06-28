@@ -55,6 +55,15 @@ public class Employee implements Serializable {
                     name = "idProject", referencedColumnName = "idProject"))
     private Collection <Project> project;
 
+//    public static Employee of(String firstName, String lastName, String gender,
+//                          String address, String cellphone, String provenance, Date dateBirth,
+//                          Date dateStart, Date dateEnd, User user, Category category,
+//                          Collection<Project> project){
+//        return new Employee(idEmployee, firstName, lastName, gender,
+//                address, cellphone, provenance, dateBirth,
+//                dateStart, dateEnd, user, category, project);
+//    }
+
     public Employee(int idEmployee, String firstName, String lastName, String gender,
                     String address, String cellphone, String provenance, Date dateBirth,
                     Date dateStart, Date dateEnd, User user, Category category,

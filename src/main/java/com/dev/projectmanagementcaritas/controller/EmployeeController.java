@@ -3,8 +3,12 @@ package com.dev.projectmanagementcaritas.controller;
 import com.dev.projectmanagementcaritas.model.*;
 import com.dev.projectmanagementcaritas.repository.EmployeeRepo;
 import com.dev.projectmanagementcaritas.repository.UserRepo;
+import com.dev.projectmanagementcaritas.service.Services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.sql.Date;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
@@ -17,8 +21,17 @@ public class EmployeeController {
     EmployeeRepo employeeRepo;
     @Autowired
     UserRepo userRepo;
-//    @Autowired
-//    BCryptPasswordEncoder passwordEncoder;
+    Services services;
+
+//    record EmployeeRequest (int idEmployee, String firstName, String lastName, String gender,
+//                            String address, String cellphone, String provenance, Date dateBirth,
+//                            Date dateStart, Date dateEnd, User user, Category category,
+//                            Collection<Project> project){}
+//
+//    record EmployeeResponse (int idEmployee, String firstName, String gender,
+//                            String address, String cellphone, String provenance,
+//                            Date dateStart, Date dateEnd, String user, String category,
+//                            String project){}
 
     @GetMapping("/employeeList")
     public List<Employee> employeesList(){
@@ -32,18 +45,17 @@ public class EmployeeController {
 
     @PostMapping("/saveEmployee")
     public String createEmployee(@RequestBody Employee employee, @RequestBody User user,
-                                @RequestParam Collection <Role> roles,@RequestParam Category category,
+                               @RequestParam Category category,
                                @RequestParam Collection <Project> projects){
 
-        if (user.getUsername() .equals(userRepo.findByUsername(user.getUsername()))){
+        if (user.getUsername() .equals(userRepo.findByUsername(user.getUsername()))) {
 //            model.addAttribute("erro", "username existente!!! informe outro username");
             return "erro, username invalido!!! informe um email valido";
         }
 
-        user.setRole(roles);
-//        u.setPassword(passwordEncoder.encode(u.getPassword()));
-        userRepo.save(user);
+        services.setUserRole(user, category);
 
+        userRepo.save(user);
         employee.setUser(user);
         employee.setCategory(category);
         employee.setProject(projects);

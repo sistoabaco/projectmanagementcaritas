@@ -7,7 +7,6 @@
     >
       <div class="grid grid-cols-3 gap-4 space-y-px w-max">
         <TextInput
-          v-model="user.username"
           label="Username"
           placeholder="Username"
           class="col-span-3"
@@ -22,69 +21,62 @@
         />
         <p></p>
         <TextInput
-          v-model="user.name"
           label="Nome"
           placeholder="Nome"
           class=""
           required
         />
         <TextInput
-          v-model="user.email"
           label="Email"
           placeholder="Email"
           class=""
           required
         />
         <TextInput
-          v-model="user.email"
           label="Telefone"
-          placeholder="Email"
+          placeholder="82/83/84/85/86/87"
           class=""
           required
         />
         <TextInput
-          v-model="user.email"
           label="Endereco"
-          placeholder="Email"
+          placeholder="Eduardo Mondlane"
           class=""
           required
         />
         <SelectInput
-          v-model="user.role"
           label="Genero"
           placeholder=""
-          :items="roleOptions"
+          :items="categoriesHeaders"
           class=""
           required
         />
         <SelectInput
-          v-model="user.role"
           label="Estado Civil"
           placeholder=""
-          :items="roleOptions"
+          :items="categoriesHeaders"
           class=""
           required
         />
         <SelectInput
-          v-model="user.role"
           label="Categoria"
           placeholder=""
-          :items="roleOptions"
+          :items="categories"
+          :headers="categoriesHeaders"
           class=""
           required
         />
         <SelectInput
-          v-model="user.department"
           label="Departamento"
-          :items="departmentOptions"
+          :headers="categoriesHeaders"
+          :items="categoriesHeaders"
           placeholder=""
           class=""
           required
         />
         <SelectInput
-          v-model="user.department"
           label="Projecto"
-          :items="departmentOptions"
+          :items="categoriesHeaders"
           placeholder=""
           class=""
           required
@@ -114,33 +106,43 @@
 
 <script lang="ts">
 import Modal from "~/components/common/misc/Modal.vue";
+import SelectInput from "~/components/common/inputs/SelectInput.vue";
 import AppButton from "~/components/common/misc/AppButton.vue";
 import TextInput from "~/components/common/inputs/TextInput.vue";
-import SelectInput from "~/components/common/inputs/SelectInput.vue";
+import { defineComponent } from "@nuxtjs/composition-api";
 
-export default {
-  components: { Modal, AppButton, TextInput, SelectInput },
-
+export default defineComponent({
+  components: {Modal, AppButton, TextInput, SelectInput},
   data: () => ({
-    user: {
-      username: "",
-      name: "",
-      email: "",
-      role: null,
-      category : [],
-    },
-    roleOptions: [
-      { value: "ADMIN", name: "Administrador" },
-      { value: "MANAGER", name: "Gestor" },
-      { value: "USER", name: "Utilizador" },
+    data:[],
+    selectedCategory: {},
+    categoriesHeaders: [
+      {
+        key: "idCategory",
+        title: "DESCRICAO",
+        class: "whitespace-no-wrap",
+      },
     ],
   }),
 
+  // created() {
+  //   this.fetch()
+  // },
 
-  methods: {
-
-    handleSubmit() {
+  computed: {
+    categories() {
+      console.log("Testando " + this.$store.state.categories.data);
+      return this.$store.state.categories.data;
     },
   },
-};
+
+  methods: {
+    async fetch() {
+      this.$store.commit(
+        "categories/storeData",
+        (await this.$axios.get("http://localhost:8080/categoryList")).data
+      );
+    },
+  },
+});
 </script>

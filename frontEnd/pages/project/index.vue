@@ -122,7 +122,6 @@ import AddUserIcon from "~/assets/icons/add-user.vue";
 import Table from "~/components/common/misc/Table.vue";
 import EditOutline from "~/assets/icons/edit-outline.vue";
 import DeleteOutline from "~/assets/icons/delete_outline.vue";
-import "vuex/types/vue";
 
 export default defineComponent({
   name: "Index",
