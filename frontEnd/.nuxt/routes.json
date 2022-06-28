@@ -1,5 +1,21 @@
 [
   {
+    "name": "categories",
+    "path": "/categories",
+    "component": "C:\\\\Projectos\\\\projectmanagementcaritas\\\\frontEnd\\\\pages\\\\categories\\\\index.vue",
+    "chunkName": "pages/categories/index",
+    "children": [
+      {
+        "name": "categories-index-create",
+        "path": "create",
+        "component": "C:\\\\Projectos\\\\projectmanagementcaritas\\\\frontEnd\\\\pages\\\\categories\\\\index\\\\create.vue",
+        "chunkName": "pages/categories/index/create",
+        "_name": "_05213ffd"
+      }
+    ],
+    "_name": "_6162ca81"
+  },
+  {
     "name": "login",
     "path": "/login",
     "component": "C:\\\\Projectos\\\\projectmanagementcaritas\\\\frontEnd\\\\pages\\\\login\\\\index.vue",

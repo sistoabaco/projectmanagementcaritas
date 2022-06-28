@@ -2,7 +2,6 @@ package com.dev.projectmanagementcaritas.service;
 
 import com.dev.projectmanagementcaritas.model.Category;
 import com.dev.projectmanagementcaritas.model.Employee;
-import com.dev.projectmanagementcaritas.model.Project;
 import com.dev.projectmanagementcaritas.model.User;
 import com.dev.projectmanagementcaritas.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;

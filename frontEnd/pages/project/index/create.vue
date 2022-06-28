@@ -108,7 +108,7 @@ export default {
         await this.$axios.post("http://localhost:8080/saveProject", this.project, {
         }) .then(()=>{
             this.$nuxt.refresh()
-            this.$router.push({ name: 'project' })
+            this.$router.push({ name: '/project' })
         })
     },
   },

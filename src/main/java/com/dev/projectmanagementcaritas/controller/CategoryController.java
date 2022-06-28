@@ -5,6 +5,7 @@ import com.dev.projectmanagementcaritas.repository.CategoryRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import java.util.Locale;
 
 @RestController
 @CrossOrigin("http://localhost:3000/")
@@ -25,6 +26,12 @@ public class CategoryController {
 
     @PostMapping("/saveCategory")
     public String createCategory(@RequestBody Category category){
+
+        category.setDescription(category.getDescription().toUpperCase(Locale.ROOT));
+
+        if(categoryRepo.findByName(category.getDescription()) != null)
+            return "Erro! Nome da categoria existente!!!";
+
         categoryRepo.save(category);
         return "redirect:/categoryList";
     }

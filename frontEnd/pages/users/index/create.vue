@@ -118,8 +118,13 @@ export default defineComponent({
     selectedCategory: {},
     categoriesHeaders: [
       {
-        key: "idCategory",
+        key: "description",
         title: "DESCRICAO",
+        class: "whitespace-no-wrap",
+      },
+      {
+        key: "salary",
+        title: "salario",
         class: "whitespace-no-wrap",
       },
     ],

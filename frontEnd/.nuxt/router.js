@@ -4,6 +4,8 @@ import { normalizeURL, decode } from 'ufo'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
+const _6162ca81 = () => interopDefault(import('..\\pages\\categories\\index.vue' /* webpackChunkName: "pages/categories/index" */))
+const _05213ffd = () => interopDefault(import('..\\pages\\categories\\index\\create.vue' /* webpackChunkName: "pages/categories/index/create" */))
 const _8ba13664 = () => interopDefault(import('..\\pages\\login\\index.vue' /* webpackChunkName: "pages/login/index" */))
 const _210a2552 = () => interopDefault(import('..\\pages\\partners\\index.vue' /* webpackChunkName: "pages/partners/index" */))
 const _a1455844 = () => interopDefault(import('..\\pages\\project\\index.vue' /* webpackChunkName: "pages/project/index" */))
@@ -25,6 +27,15 @@ export const routerOptions = {
   scrollBehavior,
 
   routes: [{
+    path: "/categories",
+    component: _6162ca81,
+    name: "categories",
+    children: [{
+      path: "create",
+      component: _05213ffd,
+      name: "categories-index-create"
+    }]
+  }, {
     path: "/login",
     component: _8ba13664,
     name: "login"

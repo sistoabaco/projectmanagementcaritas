@@ -3,10 +3,7 @@ import com.dev.projectmanagementcaritas.model.Project;
 import com.dev.projectmanagementcaritas.repository.ProjectRepo;
 import com.dev.projectmanagementcaritas.service.Services;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
-
 import java.util.List;
 
 //@Controller
@@ -33,14 +30,15 @@ public class ProjectController {
     public String createProject(@RequestBody Project project){
 
         if(project.getDateEnd().compareTo(project.getDateStart()) > 0 &&
-        project.getBudget() >= project.getBalanceAvailable()){
+        project.getBudget() >= project.getBalanceAvailable()
+        && projectRepo.findByName(project.getProjectName()) == null){
 
             project.setStatus("Activo");
             projectRepo.save(project);
             return "redirect:/projectList";
         }
 
-        return "-1";
+        return "Erro!!! verifique o nome, datas ou orcamento e saldo";
     }
 
     @PutMapping("/updateProject/{id}")

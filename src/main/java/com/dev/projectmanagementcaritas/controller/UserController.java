@@ -4,9 +4,7 @@ import com.dev.projectmanagementcaritas.model.User;
 import com.dev.projectmanagementcaritas.repository.UserRepo;
 import com.dev.projectmanagementcaritas.service.Services;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 @CrossOrigin("http://localhost:3000/")

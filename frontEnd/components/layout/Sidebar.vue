@@ -50,6 +50,39 @@
                 <span>Dashboard</span>
               </nuxt-link>
             </li>
+
+            <li>
+              <nuxt-link
+                class="
+                  flex
+                  items-center
+                  pl-3
+                  py-3
+                  pr-2
+                  text-gray-50
+                  hover:bg-red-500
+                  rounded
+                "
+                to="/categories"
+              >
+                <span>Categorias</span>
+                <!--<span
+                  class="
+                    flex
+                    justify-center
+                    items-center
+                    ml-auto
+                    bg-indigo-500
+                    w-6
+                    h-6
+                    text-xs
+                    rounded-full
+                  "
+                  >4</span
+                >-->
+              </nuxt-link>
+            </li>
+
             <li>
               <nuxt-link
                 class="
