@@ -43,7 +43,7 @@
               size="large"
               @click.native="
                 $router.push({
-                  name: 'users-index-create',
+                  name: 'project-index-create',
                 })
               "
             >
@@ -63,11 +63,6 @@
           >
             <template #name="{ value: project }">
               <span class="flex font-semibold">{{ project.name }}</span>
-            </template>
-            <template #role="{ value: project }">
-              <span>{{
-                roleOptions.find((role) => role.value === project.role).name
-              }}</span>
             </template>
             <template #actions="{ value: project }">
               <div class="flex flex-wrap items-center space-x-2">
@@ -108,6 +103,7 @@
           </Table>
         </div>
       </div>
+      <nuxt-child />
     </page>
   </div>
 </template>
