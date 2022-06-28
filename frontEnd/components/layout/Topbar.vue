@@ -1,13 +1,19 @@
 <template>
   <nav>
     <div class="flex justify-between items-center p-6 h-16 bg-red-500">
+
       <a
         id="bv-logo"
         class="text-xl text-white font-semibold uppercase"
-        href="#"
+        href="/"
       >
-        CARITAS DIOCESANA DE PEMBA
+        <div class="w-8 h-3 rounded-full object-cover object-right" style="margin-left: 300px">
+          <img src="caritasmz.png"/>
+        </div>
+          CARITAS DIOCESANA DE PEMBA
+
       </a>
+
       <div class="flex items-center">
         <a
           id="notification-icon"
@@ -18,7 +24,7 @@
         </a>
         <div class="flex items-center">
           <div id="user-description-wrapper" class="hidden lg:block mr-3">
-            <p id="user-name" class="text-sm text-white">pmarques</p>
+            <p id="user-name" class="text-sm text-white">Locas Mouser</p>
             <p id="user-role" class="text-sm text-gray-400">Developer</p>
           </div>
           <div class="mr-2">
