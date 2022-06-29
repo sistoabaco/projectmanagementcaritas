@@ -13,7 +13,7 @@
               size="large"
               @click.native="
                 $router.push({
-                  name: 'categories-index-create',
+                  name: 'users-index-create',
                 })
               "
             >
