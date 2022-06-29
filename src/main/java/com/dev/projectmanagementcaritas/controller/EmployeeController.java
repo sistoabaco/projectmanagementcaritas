@@ -4,14 +4,17 @@ import com.dev.projectmanagementcaritas.model.*;
 import com.dev.projectmanagementcaritas.repository.EmployeeRepo;
 import com.dev.projectmanagementcaritas.repository.RoleRepo;
 import com.dev.projectmanagementcaritas.repository.UserRepo;
-import com.dev.projectmanagementcaritas.service.Services;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.Date;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
+
+import static org.springframework.http.HttpHeaders.AUTHORIZATION;
 
 //@Controller
 @RestController
@@ -24,6 +27,8 @@ public class EmployeeController {
     UserRepo userRepo;
     @Autowired
     RoleRepo roleRepo;
+    @Autowired
+    BCryptPasswordEncoder passwordEncoder;
 
 //    record EmployeeRequest (int idEmployee, String firstName, String lastName, String gender,
 //                            String address, String cellphone, String provenance, Date dateBirth,
@@ -50,7 +55,7 @@ public class EmployeeController {
                                @RequestParam Category category,
                                @RequestParam Collection <Project> projects){
 
-        if (user.getUsername() .equals(userRepo.findByUsername(user.getUsername()))) {
+        if (user.equals(userRepo.findByUsername(user.getUsername()))) {
 //            model.addAttribute("erro", "username existente!!! informe outro username");
             return "erro, username invalido!!! informe um email valido";
         }
@@ -64,7 +69,9 @@ public class EmployeeController {
             default:user.setRole(Arrays.asList(roleRepo.findByRole("OTHER")));
         }
 
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepo.save(user);
+
         employee.setUser(user);
         employee.setCategory(category);
         employee.setProject(projects);

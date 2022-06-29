@@ -5,6 +5,7 @@ import com.dev.projectmanagementcaritas.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import java.sql.Date;
 import java.util.Arrays;
@@ -46,15 +47,15 @@ public class DataLoader implements CommandLineRunner {
         roleRepo.save(new Role(13, "P_TECNICOS DO CAMPO"));
 
         // Utilizadores
-        userRepo.save(new User(1,"admin","zxcvb",
+        userRepo.save(new User(1,"admin",passwordEncoder.encode("zxcvb"),
                 Arrays.asList(roleRepo.findByRole("P_ADMIN"),
                         roleRepo.findByRole("P_USER"),
                         roleRepo.findByRole("P_PARTNER"))));
 
         userRepo.save(new User(2,"user",passwordEncoder.encode("zxcvb"),
-                Arrays.asList(roleRepo.findByRole("USER"))));
+                Arrays.asList(roleRepo.findByRole("P_USER"))));
         userRepo.save(new User(3,"partner",passwordEncoder.encode("zxcvb"),
-                Arrays.asList(roleRepo.findByRole("PARTNER"))));
+                Arrays.asList(roleRepo.findByRole("P_PARTNER"))));
 
         //projecto
         projectRepo.save(new Project(1,"BHA", "Activo", 12000000.0,"Chiure",

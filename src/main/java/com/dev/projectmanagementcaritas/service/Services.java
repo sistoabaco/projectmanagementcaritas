@@ -1,58 +1,43 @@
 package com.dev.projectmanagementcaritas.service;
 
-import com.dev.projectmanagementcaritas.model.Category;
-import com.dev.projectmanagementcaritas.model.Employee;
 import com.dev.projectmanagementcaritas.model.User;
-import com.dev.projectmanagementcaritas.repository.*;
+import com.dev.projectmanagementcaritas.repository.UserRepo;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
-import java.util.Arrays;
+import javax.transaction.Transactional;
+import java.util.ArrayList;
+import java.util.Collection;
 
 @Service
-public class Services {
-    @Autowired
-    RoleRepo roleRepo;
+@Transactional
+@RequiredArgsConstructor
+@Slf4j
+
+public class Services implements UserDetailsService{
     @Autowired
     UserRepo userRepo;
-    @Autowired
-    EmployeeRepo employeeRepo;
-    @Autowired
-    ProjectRepo projectRepo;
-    @Autowired
-    PartnerRepo partnerRepo;
-    private PasswordEncoder passwordEncoder;
 
-    public void setUserRole(User user, Category category){
-        user.setUsername(passwordEncoder.encode(user.getPassword()));
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+         User user = userRepo.findByUsername(username);
 
-        switch (category.getDescription()){
-            case "admin": user.setRole(Arrays.asList(roleRepo.findByRole("P_ADMIN"),
-                    roleRepo.findByRole("P_USER"),
-                    roleRepo.findByRole("P_PARTNER"))); break;
-            case "user":Arrays.asList(roleRepo.findByRole("USER")); break;
-            case "partner":Arrays.asList(roleRepo.findByRole("PARTNER")); break;
-            default:user.setRole(Arrays.asList(roleRepo.findByRole("OTHER")));
-        }
-    }
+         if(user == null) {
+             log.error("error!!! User not found!");
+             throw  new UsernameNotFoundException("error!!! User not found!");
+         }
 
-    public User login(String username, String password) {
-        //find user by username
-        var user = userRepo.findByUsername(username);
+         log.info("Sucess!!! User found in the database: {}", username);
 
-        if(!user.getUsername().equals(username))
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid User");
-
-        if(!passwordEncoder.matches(password, user.getPassword())) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "password does not match");
-        }
-
-        return user;
-    }
-
-    public Employee findEmployeeByUser(User user) {
-        return employeeRepo.findByEmployeeByUser(user);
+         Collection <SimpleGrantedAuthority> authorities = new ArrayList<>();
+         user.getRole().forEach(role ->{
+            authorities.add(new SimpleGrantedAuthority(role.getDescription()));
+         });
+         return new org.springframework.security.core.userdetails.User(user.getUsername(),user.getPassword(), authorities);
     }
 }
