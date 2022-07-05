@@ -7,18 +7,14 @@ import com.dev.projectmanagementcaritas.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
-import static org.springframework.http.HttpHeaders.AUTHORIZATION;
 
 //@Controller
 @RestController
-@CrossOrigin("http://localhost:3000/")
+//@CrossOrigin("http://localhost:3000/")
 
 public class EmployeeController {
     @Autowired

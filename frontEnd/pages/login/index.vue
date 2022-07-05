@@ -1,35 +1,34 @@
 <template>
- <main class="login" @submit.prevent="submit">
-   <section class="forms">
-     <form class="login" >
-       <h2>E-mail</h2>
-       <input type="email" name="email" placeholder="email address" v-model="data.email"/>
+ <div>
+   <h2>E-mail</h2>
+       <input type="text" placeholder="email address" v-model="username"/>
+<!--        {{email}}-->
+
        <h2>Password</h2>
-       <input type="password" name = "password" placeholder="password" v-model="data.password"/>
-       <button type="submit" class="">ENTRAR</button>
-     </form>
-   </section>
- </main>
+       <input type="password" placeholder="password" v-model="password"/>
+<!--        {{password}}-->
+       <button @click = "submit"> ENTRAR</button>
+ </div>
 </template>
 
 <script lang="ts">
-  import {reactive} from "@nuxtjs/composition-api";
 
   export default {
-    name: 'Login',
-    setup(){
-       const data = reactive({
-          email : '',
-          password: '',
-        });
 
-      const submit = async() =>{
-        const response =  await axios.post('http://localhost:8080/login', data)
-      }
+    data(){
       return{
-        data,
-        submit
-      }
-    }
+          username:"",
+          password:"",
+        };
+    },
+    methods:{
+      async submit() {
+        const data = {username: this.username, password: this.password}
+        console.log(data)
+        const response = await this.$axios.post("http://localhost:8080/login", data,
+          {withCredentials: true});
+        // this.$axios.defaults.headers.common['Authorization'] = 'Bearer ' + response.data.token;
+      },
+    },
   }
 </script>

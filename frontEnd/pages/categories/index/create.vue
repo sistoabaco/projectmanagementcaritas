@@ -65,7 +65,7 @@ export default {
         await this.$axios.post("http://localhost:8080/saveCategory", this.category, {
         }) .then(()=>{
             this.$nuxt.refresh()
-            this.$router.push({ name: '/categories' })
+            this.$router.push({ name: 'category' })
         })
     },
   },

@@ -13,7 +13,7 @@
               size="large"
               @click.native="
                 $router.push({
-                  name: 'users-index-create',
+                  name: 'categories-index-create',
                 })
               "
             >
@@ -135,7 +135,7 @@ export default defineComponent({
 
     goToEdit(category) {
       this.$router.push({
-        name: "users-index-id-edit",
+        name: "categories-index-id-edit",
         params: { category: category },
       });
       console.log(category);

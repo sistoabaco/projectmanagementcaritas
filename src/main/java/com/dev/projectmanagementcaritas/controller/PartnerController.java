@@ -8,12 +8,11 @@ import com.dev.projectmanagementcaritas.repository.PartnerRepo;
 import com.dev.projectmanagementcaritas.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.Collection;
 import java.util.List;
 
 @RestController
-@CrossOrigin("http://localhost:3000/")
+//@CrossOrigin("http://localhost:3000/")
 
 public class PartnerController {
     @Autowired

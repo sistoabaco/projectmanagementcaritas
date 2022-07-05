@@ -10,7 +10,7 @@ import java.util.List;
 
 //@Controller
 @RestController
-@CrossOrigin("http://localhost:3000/")
+//@CrossOrigin("http://localhost:3000/")
 
 public class RoleController {
     @Autowired

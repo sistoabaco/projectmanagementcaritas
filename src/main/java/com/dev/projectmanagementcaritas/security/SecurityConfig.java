@@ -12,9 +12,10 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import java.util.List;
 import static org.springframework.http.HttpMethod.GET;
 import static org.springframework.http.HttpMethod.POST;
 import static org.springframework.security.config.http.SessionCreationPolicy.STATELESS;
@@ -39,13 +40,27 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception{
         http.csrf().disable();
         http.sessionManagement().sessionCreationPolicy(STATELESS);
-        http.authorizeRequests().antMatchers("/", "/login","/refreshToken").permitAll();
+        http.authorizeRequests().antMatchers("/", "/h2", "/login", "/refreshToken").permitAll();
+//        http.authorizeRequests().antMatchers("/saveProject", "/saveCategory", "/savePartner").permitAll();
         http.authorizeRequests().antMatchers(GET, "/**").permitAll();
+        http.authorizeRequests().antMatchers(POST, "/**").permitAll();
 //        http.authorizeRequests().antMatchers(GET, "/**").hasAnyAuthority("P_USER");
 //        http.authorizeRequests().antMatchers(POST, "/saveEmployee").hasAnyAuthority("P_ADMIN");
         http.authorizeRequests().anyRequest().authenticated();
         http.addFilter(new CustomAuthenticationFilter(authenticationManagerBean()));
         http.addFilterBefore(new CustomAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class);
+
+        http.cors(c -> {
+            CorsConfigurationSource cs =  r ->{
+                CorsConfiguration cc = new CorsConfiguration();
+                cc.setAllowedOrigins(List.of("http://localhost:3000", "http://localhost:8080"));
+                cc.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE"));
+                cc.setAllowedHeaders(List.of("*"));
+                cc.setAllowCredentials(true);
+                return cc;
+            };
+            c.configurationSource(cs);
+        });
 
     }
 

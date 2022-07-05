@@ -25,7 +25,7 @@
         <div class="flex items-center">
           <div id="user-description-wrapper" class="hidden lg:block mr-3">
             <p id="user-name" class="text-sm text-white">Locas Mouser</p>
-            <p id="user-role" class="text-sm text-gray-400">Developer</p>
+            <p id="user-role" class="text-sm text-gray-400">ADMIN</p>
           </div>
           <div class="mr-2">
             <img
