@@ -64,9 +64,10 @@ export default {
     async handleSubmit() {
         await this.$axios.post("http://localhost:8080/saveCategory", this.category, {
         }) .then(()=>{
-            this.$nuxt.refresh()
-            this.$router.push({ name: 'category' })
+
         })
+        this.$nuxt.refresh()
+        this.$router.push({ name: 'category' })
     },
   },
 };

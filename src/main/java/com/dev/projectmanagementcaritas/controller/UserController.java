@@ -21,7 +21,7 @@ import static org.springframework.http.HttpStatus.FORBIDDEN;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @RestController
-@CrossOrigin("http://localhost:3000/")
+//@CrossOrigin("http://localhost:3000/")
 
 public class UserController {
     @Autowired
@@ -65,6 +65,10 @@ public class UserController {
         }
     }
 
+    @GetMapping("/listUsers")
+    public List <User> getUsers(){
+        return userRepo.findAll();
+    }
 //    public String loggedUser() {
 //        Authentication authentication = (Authentication) SecurityContextHolder.getContext().getAuthentication();
 //        return authentication.getName();
