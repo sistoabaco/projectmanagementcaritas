@@ -13,10 +13,14 @@ import { createStore } from './store.js'
 
 /* Plugins */
 
-import nuxt_plugin_plugin_295718da from 'nuxt_plugin_plugin_295718da' // Source: .\\components\\plugin.js (mode: 'all')
-import nuxt_plugin_plugin_8ea29830 from 'nuxt_plugin_plugin_8ea29830' // Source: .\\composition-api\\plugin.mjs (mode: 'all')
-import nuxt_plugin_axios_6f9983fd from 'nuxt_plugin_axios_6f9983fd' // Source: .\\axios.js (mode: 'all')
-import nuxt_plugin_meta_7b0268fa from 'nuxt_plugin_meta_7b0268fa' // Source: .\\composition-api\\meta.mjs (mode: 'all')
+import nuxt_plugin_plugin_58949d84 from 'nuxt_plugin_plugin_58949d84' // Source: .\\components\\plugin.js (mode: 'all')
+import nuxt_plugin_plugin_1a05370c from 'nuxt_plugin_plugin_1a05370c' // Source: .\\composition-api\\plugin.mjs (mode: 'all')
+import nuxt_plugin_workbox_612a5f03 from 'nuxt_plugin_workbox_612a5f03' // Source: .\\workbox.js (mode: 'client')
+import nuxt_plugin_metaplugin_4613a083 from 'nuxt_plugin_metaplugin_4613a083' // Source: .\\pwa\\meta.plugin.js (mode: 'all')
+import nuxt_plugin_iconplugin_4abb45f7 from 'nuxt_plugin_iconplugin_4abb45f7' // Source: .\\pwa\\icon.plugin.js (mode: 'all')
+import nuxt_plugin_axios_266d90b2 from 'nuxt_plugin_axios_266d90b2' // Source: .\\axios.js (mode: 'all')
+import nuxt_plugin_auth_4c5d3eae from 'nuxt_plugin_auth_4c5d3eae' // Source: .\\auth.js (mode: 'all')
+import nuxt_plugin_meta_1cb135c4 from 'nuxt_plugin_meta_1cb135c4' // Source: .\\composition-api\\meta.mjs (mode: 'all')
 
 // Component: <ClientOnly>
 Vue.component(ClientOnly.name, ClientOnly)
@@ -81,7 +85,7 @@ async function createApp(ssrContext, config = {}) {
   // here we inject the router and store to all child components,
   // making them available everywhere as `this.$router` and `this.$store`.
   const app = {
-    head: {"title":"caritas_management_process","htmlAttrs":{"lang":"en"},"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":""},{"name":"format-detection","content":"telephone=no"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"}],"style":[],"script":[]},
+    head: {"title":"Caritas - Gestão de Projectos","htmlAttrs":{"lang":"en"},"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":"Caritas - Gestão de Projectos"},{"name":"format-detection","content":"telephone=no"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"}],"style":[],"script":[]},
 
     store,
     router,
@@ -210,20 +214,36 @@ async function createApp(ssrContext, config = {}) {
   }
   // Plugin execution
 
-  if (typeof nuxt_plugin_plugin_295718da === 'function') {
-    await nuxt_plugin_plugin_295718da(app.context, inject)
+  if (typeof nuxt_plugin_plugin_58949d84 === 'function') {
+    await nuxt_plugin_plugin_58949d84(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_plugin_8ea29830 === 'function') {
-    await nuxt_plugin_plugin_8ea29830(app.context, inject)
+  if (typeof nuxt_plugin_plugin_1a05370c === 'function') {
+    await nuxt_plugin_plugin_1a05370c(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_axios_6f9983fd === 'function') {
-    await nuxt_plugin_axios_6f9983fd(app.context, inject)
+  if (process.client && typeof nuxt_plugin_workbox_612a5f03 === 'function') {
+    await nuxt_plugin_workbox_612a5f03(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_meta_7b0268fa === 'function') {
-    await nuxt_plugin_meta_7b0268fa(app.context, inject)
+  if (typeof nuxt_plugin_metaplugin_4613a083 === 'function') {
+    await nuxt_plugin_metaplugin_4613a083(app.context, inject)
+  }
+
+  if (typeof nuxt_plugin_iconplugin_4abb45f7 === 'function') {
+    await nuxt_plugin_iconplugin_4abb45f7(app.context, inject)
+  }
+
+  if (typeof nuxt_plugin_axios_266d90b2 === 'function') {
+    await nuxt_plugin_axios_266d90b2(app.context, inject)
+  }
+
+  if (typeof nuxt_plugin_auth_4c5d3eae === 'function') {
+    await nuxt_plugin_auth_4c5d3eae(app.context, inject)
+  }
+
+  if (typeof nuxt_plugin_meta_1cb135c4 === 'function') {
+    await nuxt_plugin_meta_1cb135c4(app.context, inject)
   }
 
   // Lock enablePreview in context

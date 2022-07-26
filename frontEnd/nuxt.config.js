@@ -4,14 +4,14 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'caritas_management_process',
+    title: 'Caritas - Gestão de Projectos',
     htmlAttrs: {
       lang: 'en'
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      { hid: 'description', name: 'description', content: 'Caritas - Gestão de Projectos' },
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
@@ -43,12 +43,58 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '@nuxtjs/auth-next',
+    '@nuxtjs/pwa',
   ],
+
+  auth: {
+    strategies: {
+      local: {
+        token: {
+          property: 'token',
+          global: true,
+        },
+        user: {
+          property: 'data',
+        },
+        endpoints: {
+          login: {
+            url: '/auth/jwt',
+            method: 'post',
+            headers: {
+              'Content-Type': 'application/json',
+              Accept: 'application/json',
+            },
+          },
+          logout: { url: '/auth/jwt/logout', method: 'post' },
+          user: { url: '/user/info', method: 'get' },
+        },
+      },
+    },
+    redirect: {
+      login: '/auth/login',
+      logout: '/auth/login',
+      home: '/',
+    },
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: '/',
+    baseURL: 'http://localhost:8080/',
+  },
+
+  router: {
+    middleware: ['auth'],
+  },
+
+  pwa: {
+    manifest: {
+      lang: 'en',
+    },
+    icon: {
+      fileName: 'icon.png',
+    },
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

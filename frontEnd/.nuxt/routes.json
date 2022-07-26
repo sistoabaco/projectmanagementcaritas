@@ -2,67 +2,77 @@
   {
     "name": "categories",
     "path": "/categories",
-    "component": "C:\\\\Projectos\\\\projectmanagementcaritas\\\\frontEnd\\\\pages\\\\categories\\\\index.vue",
+    "component": "C:\\\\projectos_duarte\\\\projectmanagementcaritas\\\\frontEnd\\\\pages\\\\categories\\\\index.vue",
     "chunkName": "pages/categories/index",
     "children": [
       {
         "name": "categories-index-create",
         "path": "create",
-        "component": "C:\\\\Projectos\\\\projectmanagementcaritas\\\\frontEnd\\\\pages\\\\categories\\\\index\\\\create.vue",
-        "chunkName": "pages/categories/index/create"
+        "component": "C:\\\\projectos_duarte\\\\projectmanagementcaritas\\\\frontEnd\\\\pages\\\\categories\\\\index\\\\create.vue",
+        "chunkName": "pages/categories/index/create",
+        "_name": "_71e4c2e2"
       }
-    ]
-  },
-  {
-    "name": "login",
-    "path": "/login",
-    "component": "C:\\\\Projectos\\\\projectmanagementcaritas\\\\frontEnd\\\\pages\\\\login\\\\index.vue",
-    "chunkName": "pages/login/index"
+    ],
+    "_name": "_1257db13"
   },
   {
     "name": "partners",
     "path": "/partners",
-    "component": "C:\\\\Projectos\\\\projectmanagementcaritas\\\\frontEnd\\\\pages\\\\partners\\\\index.vue",
-    "chunkName": "pages/partners/index"
+    "component": "C:\\\\projectos_duarte\\\\projectmanagementcaritas\\\\frontEnd\\\\pages\\\\partners\\\\index.vue",
+    "chunkName": "pages/partners/index",
+    "_name": "_32ce3264"
   },
   {
     "name": "project",
     "path": "/project",
-    "component": "C:\\\\Projectos\\\\projectmanagementcaritas\\\\frontEnd\\\\pages\\\\project\\\\index.vue",
+    "component": "C:\\\\projectos_duarte\\\\projectmanagementcaritas\\\\frontEnd\\\\pages\\\\project\\\\index.vue",
     "chunkName": "pages/project/index",
     "children": [
       {
         "name": "project-index-create",
         "path": "create",
-        "component": "C:\\\\Projectos\\\\projectmanagementcaritas\\\\frontEnd\\\\pages\\\\project\\\\index\\\\create.vue",
-        "chunkName": "pages/project/index/create"
+        "component": "C:\\\\projectos_duarte\\\\projectmanagementcaritas\\\\frontEnd\\\\pages\\\\project\\\\index\\\\create.vue",
+        "chunkName": "pages/project/index/create",
+        "_name": "_1c379708"
       }
-    ]
+    ],
+    "_name": "_4d8b46e8"
   },
   {
     "name": "users",
     "path": "/users",
-    "component": "C:\\\\Projectos\\\\projectmanagementcaritas\\\\frontEnd\\\\pages\\\\users\\\\index.vue",
+    "component": "C:\\\\projectos_duarte\\\\projectmanagementcaritas\\\\frontEnd\\\\pages\\\\users\\\\index.vue",
     "chunkName": "pages/users/index",
     "children": [
       {
         "name": "users-index-create",
         "path": "create",
-        "component": "C:\\\\Projectos\\\\projectmanagementcaritas\\\\frontEnd\\\\pages\\\\users\\\\index\\\\create.vue",
-        "chunkName": "pages/users/index/create"
+        "component": "C:\\\\projectos_duarte\\\\projectmanagementcaritas\\\\frontEnd\\\\pages\\\\users\\\\index\\\\create.vue",
+        "chunkName": "pages/users/index/create",
+        "_name": "_3b0f5279"
       },
       {
         "name": "users-index-id-edit",
         "path": ":id?/edit",
-        "component": "C:\\\\Projectos\\\\projectmanagementcaritas\\\\frontEnd\\\\pages\\\\users\\\\index\\\\_id\\\\edit.vue",
-        "chunkName": "pages/users/index/_id/edit"
+        "component": "C:\\\\projectos_duarte\\\\projectmanagementcaritas\\\\frontEnd\\\\pages\\\\users\\\\index\\\\_id\\\\edit.vue",
+        "chunkName": "pages/users/index/_id/edit",
+        "_name": "_a37d3552"
       }
-    ]
+    ],
+    "_name": "_425918fd"
+  },
+  {
+    "name": "auth-login",
+    "path": "/auth/login",
+    "component": "C:\\\\projectos_duarte\\\\projectmanagementcaritas\\\\frontEnd\\\\pages\\\\auth\\\\login.vue",
+    "chunkName": "pages/auth/login",
+    "_name": "_1d466ede"
   },
   {
     "name": "index",
     "path": "/",
-    "component": "C:\\\\Projectos\\\\projectmanagementcaritas\\\\frontEnd\\\\pages\\\\index.vue",
-    "chunkName": "pages/index"
+    "component": "C:\\\\projectos_duarte\\\\projectmanagementcaritas\\\\frontEnd\\\\pages\\\\index.vue",
+    "chunkName": "pages/index",
+    "_name": "_ffc0b4a2"
   }
 ]

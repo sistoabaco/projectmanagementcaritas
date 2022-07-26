@@ -3,7 +3,7 @@
     <div class="flex justify-between items-center p-6 h-16 bg-red-500">
 
       <a
-        id="bv-logo"
+        id="logo"
         class="text-xl text-white font-semibold uppercase"
         href="/"
       >
